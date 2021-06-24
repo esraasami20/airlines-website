@@ -1,0 +1,70 @@
+
+
+ <div class="m-5" *ngIf="airlines==undefined">
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+     aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
+</div>
+
+<div class="container" *ngIf="airlines!=undefined">
+    <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let item of airlines">
+
+            <div class="m-1 bg-light col-md-12 d-flex align-items-center wrap">
+                <div class="rounded-circle circletag">
+                        <img src="https://www.kayak.com/{{item.logoURL}}"
+                        class="img-fluid circletag img-circle "
+                        (click)="open(content ,item.code)"
+                        >
+                </div>
+                <div class="col-6 m-3">
+                    <span>{{item.name}}</span>
+                </div>
+                <div (click)="NavigateToDetailsComponent(item)">
+                  <img src="assets/images/details.png"
+                  class="img">
+                
+              </div>   
+            </div>
+           
+        </div>
+    </div>
+
+
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">{{airlineDetails.name}} Details</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+                <div class="rounded-circle">
+                  <label><h5>Airline Logo : </h5></label>
+                        <img src="https://www.kayak.com/{{airlineDetails.logoURL}}"
+                        data-toggle="modal" data-target="#logoDetail"
+                        class="img-fluid img-circle ">
+                </div>
+                <div>
+                  <label><h5>Airline Name : </h5></label>
+                    <span>{{airlineDetails.name}}</span>
+                </div>
+                <div *ngIf="airlineDetails.phone.length>0">
+                  <label><h5>Airline Phone : </h5></label>
+                  <span >{{airlineDetails.phone}}</span>
+              </div>   
+              <div>
+                <label><h5>Airline Site : </h5></label>
+                <a href="{{airlineDetails.site}}" target="_blank" class="btn btn-light">  Visit Site </a>
+              </div>
+           
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+        </div>
+      </ng-template>
+
+</div>

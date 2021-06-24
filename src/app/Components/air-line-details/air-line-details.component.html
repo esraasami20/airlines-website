@@ -1,0 +1,41 @@
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light mb-5">
+    <div class="container-fluid">
+      <h5>
+        <a  class="nav-link active" [routerLink]="['/airline-list']">{{airlineinDetails.name}}</a>
+      </h5>
+      <div (click)="print()">
+        <img src="assets/images/images.png"
+        class="img">      
+    </div> 
+      </div>
+  </nav>
+
+  <section class="row">
+
+    <div class="col-12 col-md-6 text-center">
+      <img src="https://www.kayak.com/{{airlineinDetails.logoURL}}"
+      class="img-fluid img-circle " alt=""
+      >
+    </div>
+
+    <div class="col-12 col-md-6 d-block m-5 m-md-0 ">
+        <div>
+          <h1>{{airlineinDetails.name}}</h1>
+        </div>
+
+        <div *ngIf="airlineinDetails.phone.length>0">
+          <h3>{{airlineinDetails.phone}}</h3>
+        </div> 
+      
+        <div>
+          <h3>
+            <a href="{{airlineinDetails.site}}" target="_blank" class="btn btn-light">  Visit Site </a>
+          </h3>
+      </div>
+
+    </div>   
+
+  </section>
+</div>

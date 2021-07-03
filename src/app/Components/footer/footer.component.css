@@ -3,13 +3,13 @@
 h1 {
   color: white;
   font-family: "Pattaya", sans-serif;
-  color: yellow;
+  color: blue;
   font-size: 1.25em;
 }
 p{
   color: white;
   font-family: "Pattaya", sans-serif;
-  color: yellow;
+  color: blue;
   font-size: 2.5em;
 }
 .card {
@@ -19,7 +19,13 @@ p{
   border: 0;
   margin: 0.2em;
 }
-
+.social{
+  height: 15px;
+  width: 15px;
+  background-color: transparent;
+  border: 0;
+  margin: 0.2em;
+}
 .img{
   width: 16px;
   height: 16px;
